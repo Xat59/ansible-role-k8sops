@@ -1,2 +1,3 @@
 ---
-k8sops_kontena_url: "https://github.com/lensapp/lens/releases/download/v{{ k8sops_lens.version }}/Lens-{{ k8sops_lens.version }}.amd64.deb"
+k8sops_lens_deb: "/v{{ k8sops_lens.version }}/Lens-{{ k8sops_lens.version }}.amd64.deb"
+k8sops_lens_url: "{{ k8sops_lens_baseurl }}{{ k8sops_lens_deb }}"

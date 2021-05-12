@@ -3,6 +3,7 @@
 k8sops_kubectl:
   install: true
   from_repo: true
+  version: "1.21.0"   # only used when not installing from repo
 
 # Details for the Kontena Lens IDE for Kubernetes
 k8sops_lens:

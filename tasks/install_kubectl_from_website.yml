@@ -1,7 +1,7 @@
 ---
 - name: K8SOPS | Download & install kubectl binary from website
   get_url:
-    url: curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    url: "{{ k8sops_kubectl_url | replace(' ', '') }}"
     dest: /usr/local/bin/kubectl
     mode: '0555'
     owner: root
