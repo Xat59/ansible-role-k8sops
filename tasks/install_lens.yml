@@ -1,14 +1,14 @@
 ---
 - name: K8SOPS | Download & install RPM Kontena Lens
   yum:
-    name: "{{ k8sops_lens_url }}"
+    name: "{{ k8sops_lens_url | replace(' ', '') }}"
     state: present
   when:
     - ansible_os_family == "RedHat"
 
 - name: K8SOPS | Download & install DEB Kontena Lens
   yum:
-    name: "{{ k8sops_lens_url }}"
+    name: "{{ k8sops_lens_url | replace(' ', '') }}"
     state: present
   when:
     - ansible_os_family == "Debian"
