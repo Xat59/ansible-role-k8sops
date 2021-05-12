@@ -1,0 +1,16 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check vboxmanage binary
+      shell: '[ -x "$(command -v kubectl)" ] && echo "True" || echo "False"'
+      register: kubectl_is_installed_command
+      changed_when: false
+
+    - name: Assertion
+      assert:
+        that:
+          - kubectl_is_installed_command.stdout == "True"

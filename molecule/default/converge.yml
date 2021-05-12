@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include xat.k8sops"
+      include_role:
+        name: "xat.k8sops"

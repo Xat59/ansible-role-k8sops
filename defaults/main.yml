@@ -1,0 +1,8 @@
+---
+# Details for the kubectl binary
+k8sops_install_kubectl:
+  install: true
+  from_repo: true
+
+# Weither to install the Kontena Lens IDE for Kubernetes
+k8sops_install_lens: true

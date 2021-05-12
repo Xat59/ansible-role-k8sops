@@ -1,0 +1,14 @@
+---
+- name: K8SOPS | Install kubectl binary from repo for Debian Family
+  apt:
+    name: kubectl
+    state: present
+  when:
+    - ansible_os_family == "Debian"
+
+- name: K8SOPS | Install kubectl binary from repo for EL Family
+  apt:
+    name: kubectl
+    state: present
+  when:
+    - ansible_os_family == "RedHat"
