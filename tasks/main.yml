@@ -1,14 +1,16 @@
 ---
+- include_vars: "{{ ansible_os_family }}.yml"
+
 - include: install_kubectl_from_website.yml
   when:
-    - k8sops_install_kubectl.install
-    - not k8sops_install_kubectl.from_repo
+    - k8sops_kubectl.install
+    - not k8sops_kubectl.from_repo
 
 - include: install_kubectl.yml
   when:
-    - k8sops_install_kubectl.install
-    - k8sops_install_kubectl.from_repo
+    - k8sops_kubectl.install
+    - k8sops_kubectl.from_repo
 
-#- include: install_lens.yml
-#  when:
-#    - k8sops_install_lens
+- include: install_lens.yml
+  when:
+    - k8sops_lens.install
