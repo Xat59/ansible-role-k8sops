@@ -1,14 +1,44 @@
 ---
+- name: K8SOPS | Setup APT key for Debian Kubernetes repo
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  when:
+    - ansible_os_family == "Debian"
+
+- name: K8SOPS | Setup Kubernetes repo for Debian Family
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: kubernetes
+  when:
+    - ansible_os_family == "Debian"
+
 - name: K8SOPS | Install kubectl binary from repo for Debian Family
   apt:
     name: kubectl
     state: present
+    update_cache: true
   when:
     - ansible_os_family == "Debian"
+
+- name: K8SOPS | Setup Kubernetes repo for EL Family
+  yum_repository:
+    name: kubernetes
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
+    gpgkey:
+      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  when:
+    - ansible_os_family == "RedHat"
 
 - name: K8SOPS | Install kubectl binary from repo for EL Family
   yum:
     name: kubectl
     state: present
+    update_cache: true
   when:
     - ansible_os_family == "RedHat"
