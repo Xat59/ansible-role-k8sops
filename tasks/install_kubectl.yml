@@ -1,4 +1,12 @@
 ---
+- name: K8SOPS | Install gpg-agent for Debian
+  apt:
+    name: gpg-agent
+    state: present
+    update_cache: true
+  when:
+    - ansible_os_family == "Debian"
+
 - name: K8SOPS | Setup APT key for Debian Kubernetes repo
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
