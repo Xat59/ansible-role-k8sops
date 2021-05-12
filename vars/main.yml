@@ -2,3 +2,5 @@
 k8sops_kubectl_url: >-
   https://storage.googleapis.com/kubernetes-release/release/
   v{{ k8sops_kubectl.version }}/bin/linux/amd64/kubectl
+
+k8sops_lens_baseurl: https://github.com/lensapp/lens/releases/download/
