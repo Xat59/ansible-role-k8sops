@@ -5,7 +5,7 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Check vboxmanage binary
+    - name: Check kubectl binary
       shell: '[ -x "$(command -v kubectl)" ] && echo "True" || echo "False"'
       register: kubectl_is_installed_command
       changed_when: false
