@@ -7,7 +7,7 @@
     - ansible_os_family == "Debian"
 
 - name: K8SOPS | Install kubectl binary from repo for EL Family
-  apt:
+  yum:
     name: kubectl
     state: present
   when:
