@@ -6,9 +6,17 @@
   when:
     - ansible_os_family == "RedHat"
 
+- name: K8SOPS | Install xz-utils prerequisite
+  apt:
+    name: xz-utils
+    state: present
+    update_cache: true
+  when:
+    - ansible_os_family == "Debian"
+
 - name: K8SOPS | Download & install DEB Kontena Lens
-  yum:
-    name: "{{ k8sops_lens_url | replace(' ', '') }}"
+  apt:
+    deb: "{{ k8sops_lens_url | replace(' ', '') }}"
     state: present
   when:
     - ansible_os_family == "Debian"
