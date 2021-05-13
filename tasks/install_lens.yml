@@ -3,6 +3,7 @@
   yum:
     name: "{{ k8sops_lens_url | replace(' ', '') }}"
     state: present
+    disable_gpg_check: true
   when:
     - ansible_os_family == "RedHat"
 
