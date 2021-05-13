@@ -10,7 +10,13 @@
       register: kubectl_is_installed_command
       changed_when: false
 
+    - name: Check kontena-lens binary
+      shell: '[ -x "$(command -v kontena-lens)" ] && echo "True" || echo "False"'
+      register: lens_is_installed_command
+      changed_when: false
+
     - name: Assertion
       assert:
         that:
           - kubectl_is_installed_command.stdout == "True"
+          - lens_is_installed_command.stdout == "True"
