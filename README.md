@@ -1,6 +1,6 @@
 # k8s ops tools
 
-![Build Status](https://api.travis-ci.com/Xat59/ansible-role-k8sops.svg) ![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg) ![Ansible](https://img.shields.io/badge/ansible-2.10.x-green.svg)
+[![Build Status](https://api.travis-ci.com/Xat59/ansible-role-k8sops.svg)](https://travis-ci.com/github/Xat59/ansible-role-k8sops) ![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg) ![Ansible](https://img.shields.io/badge/ansible-2.10.x-green.svg)
 
 Ansible role that installs Kubernetes tools for operators :
 
